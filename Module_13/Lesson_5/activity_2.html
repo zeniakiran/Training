@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>Array Methods</h2>
+    <!-- The join() method joins array elements into a string and the pop() method removes the last element from an array. -->
+    <p id="myjoin"></p>
+    <p id="myfirstpop"></p>
+    <p id="mysecondpop"></p>
+    <script>
+        var names = ["Ali", "Ahmad", "Sania", "Maria", "Zoya"];
+        document.getElementById("myjoin").innerHTML = names.join(" * ");
+        document.getElementById("myfirstpop").innerHTML = names;
+        names.pop();
+        document.getElementById("mysecondpop").innerHTML = names;
+    </script>
+</body>
+
+</html>
