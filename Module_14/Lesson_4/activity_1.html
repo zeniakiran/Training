@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My Magic Word Lab</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background: lightyellow;
+    }
+
+    h1,
+    h3 {
+      color: darkorange;
+    }
+
+    .box {
+      background: white;
+      color: darkorange;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container py-4">
+    <h1 class="mb-1">My Magic Word Lab</h1>
+    <p class="text-muted mb-4">Discover types, switch them, find and swap words, and catch sneaky errors!</p>
+
+    <!-- SECTION 1: Checking JavaScript data types -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title">What Type Is It?</h3>
+        <button class="btn btn-warning" onclick="showTypes()">Reveal the Types!</button>
+        <div id="typeResult" class="box p-3 mt-3 rounded">Press the button to reveal the secret types!</div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: Converting values between strings and numbers -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title">Switch the Type</h3>
+        <input id="numIn" class="form-control mb-2" placeholder="Type any number here (try: 42)">
+        <button class="btn btn-warning mr-2" onclick="convertToText()">Turn into Text</button>
+        <button class="btn btn-warning" onclick="convertToNumber()">Turn into Number</button>
+        <div id="convResult" class="box p-3 mt-3 rounded">Type a number above then press a button!</div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: Finding and replacing text -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title">Find and Swap a Word</h3>
+        <input id="findW" class="form-control mb-2" placeholder="Word to find (try: dragon)">
+        <input id="swapW" class="form-control mb-2" placeholder="Swap it with (try: wizard)">
+        <button class="btn btn-warning mr-2" onclick="findWord()">Find It!</button>
+        <button class="btn btn-warning" onclick="replaceWord()">Swap It!</button>
+        <div id="srResult" class="box p-3 mt-3 rounded">Sentence: "The dragon flew over the big castle."</div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Handling errors safely -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title">Catch the Mistake</h3>
+        <input id="divIn" class="form-control mb-2"
+          placeholder="Divide 100 by this — try a number or type something silly!">
+        <button class="btn btn-warning" onclick="handleInput()">Try It!</button>
+        <div id="errResult" class="box p-3 mt-3 rounded">Type a number or something silly and see what happens!</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var sentenceText = "The dragon flew over the big castle.";
+
+    function showTypes() {
+      document.getElementById("typeResult").innerText =
+        "Score 42        — type: " + typeof 42 + "\n" +
+        "Name 'Alex'     — type: " + typeof "Alex" + "\n" +
+        "Game over true  — type: " + typeof true;
+    }
+
+    function convertToText() {
+      var inputValue = document.getElementById("numIn").value;
+
+      document.getElementById("convResult").innerHTML =
+        "String(" + inputValue + ") = '" +
+        String(inputValue) +
+        "' — now it is a: " +
+        typeof String(inputValue);
+    }
+
+    function convertToNumber() {
+      var inputValue = document.getElementById("numIn").value;
+
+      document.getElementById("convResult").innerHTML =
+        "Number('" + inputValue + "') = " +
+        Number(inputValue) +
+        " — now it is a: " +
+        typeof Number(inputValue);
+    }
+
+    function findWord() {
+      var searchWord = document.getElementById("findW").value;
+      var wordPosition = sentenceText.search(searchWord);
+
+      document.getElementById("srResult").innerHTML =
+        wordPosition === -1
+          ? "'" + searchWord + "' is not in the sentence — try another word!"
+          : "Found '" + searchWord + "' hiding at position " + wordPosition + "!";
+    }
+
+    function replaceWord() {
+      var oldWord = document.getElementById("findW").value;
+
+      document.getElementById("srResult").innerHTML =
+        "New sentence: " +
+        sentenceText.replace(
+          oldWord,
+          document.getElementById("swapW").value
+        );
+    }
+
+    function handleInput() {
+      try {
+        var divisorValue = document.getElementById("divIn").value;
+
+        if (divisorValue === "" || isNaN(divisorValue)) {
+          throw "That is not a number — you caught the error!";
+        }
+
+        document.getElementById("errResult").innerHTML =
+          "100 / " +
+          divisorValue +
+          " = " +
+          (100 / Number(divisorValue)) +
+          " — well done!";
+
+      } catch (errorMessage) {
+        document.getElementById("errResult").innerHTML =
+          "Error caught: " + errorMessage;
+      }
+    }
+  </script>
+</body>
+
+</html>
