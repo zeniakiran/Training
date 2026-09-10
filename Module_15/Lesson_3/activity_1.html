@@ -1,0 +1,52 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Task List</title>
+</head>
+<body>
+
+    <h3>Enter a Task</h3>
+
+    <form id="taskForm">
+        <input id="taskInput" type="text">
+        <button>Add Task</button>
+    </form>
+
+    <h3>Your Tasks</h3>
+
+    <ul id="taskList"></ul>
+
+
+    <script>
+
+        var taskForm = document.getElementById("taskForm");
+        var taskInput = document.getElementById("taskInput");
+        var taskList = document.getElementById("taskList");
+
+        taskForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            addTask(taskInput.value);
+        });
+
+        function addTask(newTask) {
+
+            var task = `<li>${newTask}
+                <button onclick="removeTask(this)">Remove</button>
+            </li>`;
+
+            taskList.insertAdjacentHTML("beforeend", task);
+
+            taskInput.value = "";
+            taskInput.focus();
+        }
+
+        function removeTask(taskToRemove) {
+            taskToRemove.parentElement.remove();
+        }
+
+    </script>
+
+</body>
+</html>
+```

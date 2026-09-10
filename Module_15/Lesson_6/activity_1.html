@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dice Roller</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Helvetica, sans-serif;
+        }
+
+        #diceDisplay {
+            font-size: 320px;
+        }
+
+        #diceDisplay:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>Click the dice to roll...</div>
+
+    <div id="diceDisplay" onclick="toggleDice()"></div>
+
+
+    <script>
+
+        // Dice faces from 1 to 6
+        var diceFaces = ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;', '&#9861;'];
+
+        var isStopped = true;
+
+
+        // Changes the dice face
+        function rollDice() {
+            var randomNumber = Math.floor(Math.random() * 6);
+
+            diceDisplay.innerHTML = diceFaces[randomNumber];
+        }
+
+
+        // Starts or stops the dice
+        function toggleDice() {
+
+            if (isStopped) {
+
+                isStopped = false;
+
+                timer = setInterval(rollDice, 100);
+
+            } else {
+
+                clearInterval(timer);
+
+                isStopped = true;
+            }
+        }
+
+
+        // Start when the page loads
+        window.onload = function() {
+
+            diceDisplay = document.getElementById("diceDisplay");
+
+            toggleDice();
+        }
+
+    </script>
+
+</body>
+</html>

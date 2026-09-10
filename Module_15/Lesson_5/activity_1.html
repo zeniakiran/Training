@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Timer</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Timer</h1>
+
+        <p>
+            <span id="displaySeconds">00</span>:
+            <span id="displayMilliseconds">00</span>
+        </p>
+
+        <button id="startButton">Start Timer</button>
+        <button id="stopButton">Stop Timer</button>
+        <button id="resetButton">Reset Timer</button>
+    </div>
+
+
+    <script>
+
+        window.onload = function () {
+
+            var totalSeconds = 0;
+            var totalMilliseconds = 0;
+
+            var showMilliseconds = document.getElementById("displayMilliseconds");
+            var showSeconds = document.getElementById("displaySeconds");
+
+            var startButton = document.getElementById("startButton");
+            var stopButton = document.getElementById("stopButton");
+            var resetButton = document.getElementById("resetButton");
+
+            var timerInterval;
+
+
+            startButton.onclick = function() {
+                clearInterval(timerInterval);
+                timerInterval = setInterval(runTimer, 10);
+            }
+
+
+            stopButton.onclick = function() {
+                clearInterval(timerInterval);
+            }
+
+
+            resetButton.onclick = function() {
+                clearInterval(timerInterval);
+
+                totalMilliseconds = "00";
+                totalSeconds = "00";
+
+                showMilliseconds.innerHTML = totalMilliseconds;
+                showSeconds.innerHTML = totalSeconds;
+            }
+
+        }
+
+
+        function runTimer() {
+
+            totalMilliseconds++;
+
+            if (totalMilliseconds <= 9) {
+                showMilliseconds.innerHTML = "0" + totalMilliseconds;
+            }
+
+            if (totalMilliseconds > 9) {
+                showMilliseconds.innerHTML = totalMilliseconds;
+            }
+
+            if (totalMilliseconds > 99) {
+                totalSeconds++;
+
+                showSeconds.innerHTML = totalSeconds;
+
+                totalMilliseconds = 0;
+
+                showMilliseconds.innerHTML = "00";
+            }
+
+            if (totalSeconds > 9) {
+                showSeconds.innerHTML = totalSeconds;
+            }
+        }
+
+    </script>
+
+</body>
+</html>
