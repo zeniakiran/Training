@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <style>
+    /* Section background */
+    #social-media {
+      background: #263238;
+    }
+
+    /* Heading style */
+    .m-heading {
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    /* Social media cards */
+    .media_link {
+      border: 2px solid #17a2b8;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-right: 18px;
+      background: transparent;
+      text-align: left;
+    }
+
+    /* Keep spacing between cards */
+    .row.pt-5 {
+      gap: 18px;
+    }
+
+    /* Text inside the buttons */
+    .media_link h3 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* Social media icons */
+    .media_link i {
+      font-size: 22px;
+    }
+
+    /* Email card */
+    .media_link.bg-warning {
+      border: 2px solid #ffc107;
+    }
+  </style>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/996973c893.js"></script>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+TT:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap"
+    rel="stylesheet" />
+
+  <title>Social Media</title>
+</head>
+
+<body>
+  <!-- Social Media Section -->
+  <div id="social-media" class="container-fluid">
+    <div class="container text-white py-5">
+      <h4 class="text-info">Connect With Me</h4>
+      <h1 class="m-heading">Let's Stay Connected!</h1>
+
+      <div class="row pt-5">
+
+        <div class="col-3 media_link btn" href="#">
+          <div class="row">
+            <div class="col-6 d-flex justify-content-start">
+              <h3 class="m-0 pt-2 text-white">GitHub</h3>
+            </div>
+            <div class="col-6 d-flex justify-content-end align-items-center">
+              <i class="fab fa-github fa-2x text-secondary"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3 media_link btn">
+          <div class="row">
+            <div class="col-6 d-flex justify-content-start">
+              <h3 class="m-0 pt-2 text-white">YouTube</h3>
+            </div>
+            <div class="col-6 d-flex justify-content-end align-items-center">
+              <i class="fab fa-youtube fa-2x text-secondary"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3 media_link bg-warning btn">
+          <div class="row">
+            <div class="col-6 d-flex justify-content-start">
+              <h3 class="m-0 pt-2 text-dark">Contact</h3>
+            </div>
+            <div class="col-6 d-flex justify-content-end align-items-center">
+              <i class="fas fa-envelope fa-2x text-secondary"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

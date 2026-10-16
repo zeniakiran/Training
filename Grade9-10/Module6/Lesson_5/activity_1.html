@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet">
+
+    <title>Colorful Calculator</title>
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #263238;
+        }
+
+        #container {
+            width: 1000px;
+            height: 550px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(bgImg.jpg);
+            margin: 25px auto;
+        }
+
+        #calculator {
+            width: 320px;
+            height: 520px;
+            background-color: #f1f5f9;
+            margin: 0 auto;
+            top: 15px;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 4px 8px 6px rgba(0, 0, 0, 0.2), 6px 20px 6px rgba(0, 0, 0, 0.19);
+        }
+
+        #result {
+            height: 120px;
+        }
+
+        #history {
+            text-align: right;
+            height: 20px;
+            margin: 0 20px;
+            padding-top: 20px;
+            font-size: 15px;
+            color: #78909c;
+        }
+
+        #output {
+            text-align: right;
+            height: 60px;
+            margin: 10px 20px;
+            font-size: 30px;
+        }
+
+        #keyboard {
+            height: 400px;
+        }
+
+        .operator, .number, .empty {
+            width: 50px;
+            height: 50px;
+            margin: 15px;
+            float: left;
+            border-radius: 12px;
+            border-width: 0;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .number, .empty {
+            background-color: #f1f5f9;
+        }
+
+        .number, .operator {
+            cursor: pointer;
+        }
+
+        .operator:active, .number:active {
+            font-size: 13px;
+        }
+
+        .operator:focus, .number:focus, .empty:focus {
+            outline: 0;
+        }
+
+        button:nth-child(4) {
+            font-size: 20px;
+            background-color: #26a69a;
+            color: white;
+        }
+
+        button:nth-child(8) {
+            font-size: 20px;
+            background-color: #ffb74d;
+        }
+
+        button:nth-child(12) {
+            font-size: 20px;
+            background-color: #ef5350;
+            color: white;
+        }
+
+        button:nth-child(16) {
+            font-size: 20px;
+            background-color: #5c6bc0;
+            color: white;
+        }
+
+        button:nth-child(20) {
+            font-size: 20px;
+            background-color: #ab7bc1;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="calculator">
+
+            <div id="result">
+                <div id="history">
+                    <p id="history-value"></p>
+                </div>
+
+                <div id="output">
+                    <p id="output-value"></p>
+                </div>
+            </div>
+
+            <div id="keyboard">
+                <button class="operator" id="clear">C</button>
+                <button class="operator" id="backspace">CE</button>
+                <button class="operator" id="%">%</button>
+                <button class="operator" id="/">/</button>
+
+                <button class="number" id="7">7</button>
+                <button class="number" id="8">8</button>
+                <button class="number" id="9">9</button>
+                <button class="operator" id="*">*</button>
+
+                <button class="number" id="4">4</button>
+                <button class="number" id="5">5</button>
+                <button class="number" id="6">6</button>
+                <button class="operator" id="-">-</button>
+
+                <button class="number" id="1">1</button>
+                <button class="number" id="2">2</button>
+                <button class="number" id="3">3</button>
+                <button class="operator" id="+">+</button>
+
+                <button class="empty" id="empty"></button>
+                <button class="number" id="0">0</button>
+                <button class="empty" id="empty"></button>
+                <button class="operator" id="=">=</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
